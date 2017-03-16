@@ -1,12 +1,13 @@
 'use strict';
 
 describe('Thermostat', function(){
-  var thermostat;
+  // var thermostat;
 
-  beforeEach(function(){
+  beforeEach(function() {
     thermostat = new Thermostat();
   });
 
+describe("temperature", function() {
   it('starts at 20 degrees', function(){
     expect(thermostat.temperature).toEqual(20);
   });
@@ -20,6 +21,7 @@ describe('Thermostat', function(){
   });
 
    it('sets maximum temperature', function(){
+     thermostat.powerSavingOff()
      expect(thermostat.maxTemperature).toEqual(32);
    });
 
@@ -31,6 +33,7 @@ describe('Thermostat', function(){
    it(' checks that power saving mode is on', function(){
      expect(thermostat.powerSaving).toEqual(true);
    });
+ });
 
   describe('Increase', function(){
 
@@ -59,5 +62,12 @@ describe('Thermostat', function(){
         thermostat.decrease()
       }).toThrowError("Minimum temperature is 10!")
     });
+  });
+
+  describe('powerSaving', function() {
+
+   it('sets the max temperature to 25', function(){
+     expect(thermostat.maxTemperature).toEqual(25);
+   });
   });
 });

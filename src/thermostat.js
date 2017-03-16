@@ -1,6 +1,6 @@
 'use strict';
 const MINTEMPERATURE = 10
-const MAXTEMPERATURE = 32
+const MAXTEMPERATURE = 25
 const TEMPERATURE = 20
 function Thermostat (){
   this.temperature = TEMPERATURE
@@ -33,4 +33,11 @@ Thermostat.prototype.decrease = function() {
 Thermostat.prototype.reset = function() {
   this.temperature = TEMPERATURE
 }
+
+Thermostat.prototype.powerSavingOff = function() {
+  const MINTEMPERATURE = 10
+  const MAXTEMPERATURE = 32
+  const TEMPERATURE = 20
+  this.powerSaving = false
 };
+}
