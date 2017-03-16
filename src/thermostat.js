@@ -1,8 +1,10 @@
 'use strict';
+
 const MINTEMPERATURE = 10
 const MAXTEMPERATURE = 25
 const TEMPERATURE = 20
-function Thermostat (){
+
+function Thermostat(){
   this.temperature = TEMPERATURE
   this.minTemperature = MINTEMPERATURE
   this.maxTemperature = MAXTEMPERATURE
@@ -28,6 +30,7 @@ Thermostat.prototype.decrease = function() {
   }
   else {
   throw new Error('Minimum temperature is 10!')
+  }
 }
 
 Thermostat.prototype.reset = function() {
@@ -35,9 +38,19 @@ Thermostat.prototype.reset = function() {
 }
 
 Thermostat.prototype.powerSavingOff = function() {
-  const MINTEMPERATURE = 10
-  const MAXTEMPERATURE = 32
-  const TEMPERATURE = 20
+  this.maxTemperature = 32
   this.powerSaving = false
 };
+
+Thermostat.prototype.powerSavingOn = function () {
+  this.powerSaving = true
+};
+
+Thermostat.prototype.checkUsage = function() {
+  if (this.temperature < 18)
+    return "low-usage"
+  else if (this.temperature < 25 && this.temperature >= 18)
+    return "medium-usage"
+  else if (this.temperature >= 25)
+    return "high-usage"
 }

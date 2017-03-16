@@ -1,10 +1,10 @@
 'use strict';
 
 describe('Thermostat', function(){
-  // var thermostat;
+  var thermostat;
 
   beforeEach(function() {
-    thermostat = new Thermostat();
+   thermostat = new Thermostat();
   });
 
 describe("temperature", function() {
@@ -42,7 +42,7 @@ describe("temperature", function() {
       expect(thermostat.temperature).toEqual(21);
     });
 
-    it('wont\'t allow to increase past max temperature', function(){
+    it('wont allow to increase past max temperature', function(){
       thermostat.temperature = 32;
       expect(function(){
         thermostat.increase()
@@ -56,7 +56,7 @@ describe("temperature", function() {
       thermostat.decrease();
       expect(thermostat.temperature).toEqual(19);
     });
-    it('wont\'t allow to decrease past min temperature', function(){
+    it('wont allow to decrease past min temperature', function(){
         thermostat.temperature = 10
       expect(function(){
         thermostat.decrease()
@@ -69,5 +69,25 @@ describe("temperature", function() {
    it('sets the max temperature to 25', function(){
      expect(thermostat.maxTemperature).toEqual(25);
    });
+   it('turns powerSaving back on', function() {
+     thermostat.powerSaving = false
+     thermostat.powerSavingOn()
+     expect(thermostat.powerSaving).toBe(true)
+   })
   });
+
+  describe('energy usage', function() {
+
+    it('returns low-usage <18 degrees', function() {
+      thermostat.temperature = 17;
+      expect(thermostat.checkUsage()).toEqual("low-usage")
+    })
+    it('returns medium-usage <25 but at least 18 degrees', function() {
+      expect(thermostat.checkUsage()).toEqual("medium-usage")
+    })
+    it('returns high-usage for temps >= 25 degrees', function() {
+      thermostat.temperature = 26
+      expect(thermostat.checkUsage()).toEqual("high-usage")
+    })
+  })
 });

@@ -6,8 +6,8 @@
 * You can increase the temperature with an up function (tick)
 * You can decrease the temperature with a down function (tick)
 * The minimum temperature is 10 degrees (tick)
-* If power saving mode is on, the maximum temperature is 25 degrees
+* If power saving mode is on, the maximum temperature is 25 degrees (tick)
 * If power saving mode is off, the maximum temperature is 32 degrees (tick)
 * Power saving mode is on by default(tick)
 * You can reset the temperature to 20 with a reset function(tick)
-* You can ask about the thermostat's current energy usage: < 18 is * low-usage, < 25 is medium-usage, anything else is high-usage.
+* You can ask about the thermostat's current energy usage: < 18 is * low-usage, < 25 is medium-usage, anything else is high-usage. (tick)
