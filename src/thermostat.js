@@ -1,5 +1,4 @@
 'use strict';
-
 const MINTEMPERATURE = 10
 const MAXTEMPERATURE = 32
 const TEMPERATURE = 20
@@ -28,5 +27,9 @@ Thermostat.prototype.decrease = function() {
   }
   else {
   throw new Error('Minimum temperature is 10!')
+}
+
+Thermostat.prototype.reset = function() {
+  this.temperature = TEMPERATURE
 }
 };

@@ -23,6 +23,11 @@ describe('Thermostat', function(){
      expect(thermostat.maxTemperature).toEqual(32);
    });
 
+   it ('sets the temperature back to 20', function(){
+     thermostat.reset
+     expect(thermostat.temperature).toEqual(20);
+   });
+
   describe('Increase', function(){
 
     it('increases the temperature by 1', function(){
