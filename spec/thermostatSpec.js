@@ -28,6 +28,10 @@ describe('Thermostat', function(){
      expect(thermostat.temperature).toEqual(20);
    });
 
+   it(' checks that power saving mode is on', function(){
+     expect(thermostat.powerSaving).toEqual(true);
+   });
+
   describe('Increase', function(){
 
     it('increases the temperature by 1', function(){

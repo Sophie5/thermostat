@@ -6,6 +6,7 @@ function Thermostat (){
   this.temperature = TEMPERATURE
   this.minTemperature = MINTEMPERATURE
   this.maxTemperature = MAXTEMPERATURE
+  this.powerSaving = true
 };
 
 Thermostat.prototype.checkCurrentTemperature = function () {
