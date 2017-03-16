@@ -1,25 +1,32 @@
 'use strict';
 
+const MINTEMPERATURE = 10
+const MAXTEMPERATURE = 32
+const TEMPERATURE = 20
 function Thermostat (){
-  this._temperature = 20
-  this._minTemperature = 10
-  this._maxTemperature = 32
+  this.temperature = TEMPERATURE
+  this.minTemperature = MINTEMPERATURE
+  this.maxTemperature = MAXTEMPERATURE
 };
 
 Thermostat.prototype.checkCurrentTemperature = function () {
-  return this._temperature;
+  return this.temperature;
 };
 
 Thermostat.prototype.increase = function () {
-  if (this._temperature <= 32) {
-  this._temperature += 1;
-  } else {
-  return 'Maximum temperature is 32!';
-  }
+  if (this.temperature < MAXTEMPERATURE) {
+  this.temperature += 1;
+}
+else {
+throw new Error('Maximum temperature is 32!');
+}
 };
 
 Thermostat.prototype.decrease = function() {
-  if (this._temperature >= 10) {this._temperature -= 1;}
-  else
-  {return 'Minimum temperature is 10!'}
+  if (this.temperature > MINTEMPERATURE) {
+    this.temperature -= 1;
+  }
+  else {
+  throw new Error('Minimum temperature is 10!')
+}
 };

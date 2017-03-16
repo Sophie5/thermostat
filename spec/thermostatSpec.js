@@ -8,7 +8,7 @@ describe('Thermostat', function(){
   });
 
   it('starts at 20 degrees', function(){
-    expect(thermostat._temperature).toEqual(20);
+    expect(thermostat.temperature).toEqual(20);
   });
 
   it('return the current temperature', function() {
@@ -16,39 +16,39 @@ describe('Thermostat', function(){
   });
 
   it('sets minimum temperature', function(){
-    expect(thermostat._minTemperature).toEqual(10);
+    expect(thermostat.minTemperature).toEqual(10);
   });
 
    it('sets maximum temperature', function(){
-     expect(thermostat._maxTemperature).toEqual(32);
+     expect(thermostat.maxTemperature).toEqual(32);
    });
 
   describe('Increase', function(){
 
     it('increases the temperature by 1', function(){
       thermostat.increase();
-      expect(thermostat._temperature).toEqual(21);
+      expect(thermostat.temperature).toEqual(21);
     });
 
     it('wont\'t allow to increase past max temperature', function(){
-      thermostat._temperature = 32;
-      thermostat.increase();
-      expect(thermostat.increase()).toEqual('Maximum temperature is 32!');
+      thermostat.temperature = 32;
+      expect(function(){
+        thermostat.increase()
+      }).toThrowError("Maximum temperature is 32!")
     });
   });
 
   describe('Decrease', function(){
 
     it('decreases temperature by 1', function(){
-      thermostat.increase();
       thermostat.decrease();
-      expect(thermostat._temperature).toEqual(20);
+      expect(thermostat.temperature).toEqual(19);
     });
     it('wont\'t allow to decrease past min temperature', function(){
-      thermostat._temperature = 10
-      thermostat.decrease();
-      expect(thermostat.decrease()).toEqual('Minimum temperature is 10!')
+        thermostat.temperature = 10
+      expect(function(){
+        thermostat.decrease()
+      }).toThrowError("Minimum temperature is 10!")
     });
-
   });
 });
