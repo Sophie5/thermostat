@@ -54,3 +54,4 @@ Thermostat.prototype.checkUsage = function() {
   else if (this.temperature >= 25)
     return "high-usage"
 }
+document.write()
